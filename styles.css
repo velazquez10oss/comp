@@ -378,76 +378,168 @@ footer {
 .subir-btn:hover {
     background-color: #059669;
 }
-.tabla-productos {
-  background-color: #ecfce8;
-  padding: 2em;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(107, 191, 112, 0.3);
-  margin: 2em;
-  animation: fadeIn 2s ease;
-}
 
-.tabla-productos h2 {
-  text-align: center;
-  color: #3c813c;
-  font-size: 2em;
-  margin-bottom: 1em;
-}
 
-.tabla-composta {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: 'Arial', sans-serif;
-  overflow: hidden;
-}
+/*tabla*/
 
-.tabla-composta th,
-.tabla-composta td {
-  border: 1px solid #c9e6c9;
-  padding: 10px;
-  text-align: center;
-  transition: background 0.3s ease;
-}
-
-.tabla-composta th {
-  background-color: #a8e6a1;
-  color: #2d5d2d;
-}
-
-.tabla-composta tbody tr:nth-child(even) {
-  background-color: #f5fff4;
-}
-
-.tabla-composta tbody tr:hover {
-  background-color: #d0f8ce;
-  transform: scale(1.01);
-}
-
-.tabla-composta img {
-  width: 80px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.tabla-composta img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 8px rgba(50, 205, 50, 0.6);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .TABLA {
+    padding: 20px;
+    font-family: Arial, sans-serif;
   }
 
-}
+  .TABLA table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 350px;
+  }
+
+  .TABLA th, .TABLA td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .TABLA th {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .TABLA img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Media query para pantallas pequeñas */
+  @media screen and (max-width: 600px) {
+    .TABLA table, 
+    .TABLA thead, 
+    .TABLA tbody, 
+    .TABLA th, 
+    .TABLA td, 
+    .TABLA tr {
+      display: block;
+    }
+
+    .TABLA thead {
+      display: none;
+    }
+
+    .TABLA tr {
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    .TABLA td {
+      position: relative;
+      padding-left: 50%;
+      text-align: left;
+    }
+
+    .TABLA td::before {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 45%;
+      white-space: normal;
+      font-weight: bold;
+    }
+
+    .TABLA td:nth-of-type(1)::before { content: "Definición"; }
+    .TABLA td:nth-of-type(2)::before { content: "Descripción"; }
+    .TABLA td:nth-of-type(3)::before { content: "Foto"; }
+  }
+
+
   /*    CARRUSEL*/
+  .carrusel-wrapper {
+    width: 240px; /* ancho del carrusel */
+    margin: 0 auto;
+    background-color: #f0fff0;
+    border-radius: 12px;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .flechas {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .flechas button {
+    background-color: #2f5e2f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+  }
+
+  .flechas button:disabled {
+    background-color: #a3c4a3;
+    cursor: default;
+  }
+
+  .carrusel-container {
+    overflow-y: auto;
+    height: 480px; /* alto fijo para el scroll vertical */
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #2f5e2f transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* Scrollbar para Webkit */
+  .carrusel-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  .carrusel-container::-webkit-scrollbar-thumb {
+    background-color: #2f5e2f;
+    border-radius: 4px;
+  }
+
+  .producto {
+    width: 200px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 10px;
+    transition: transform 0.3s;
+  }
+
+  .producto img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .producto:hover {
+    transform: scale(1.05);
+  }
+
+  .producto h4 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: #2f5e2f;
+  }
+
+  .producto p {
+    font-size: 15px;
+    color: #444;
+  }
 .carrusel-container {
   overflow-y: auto;   /* Scroll vertical */
   height: 600px;      /* Altura fija para que se pueda scrollear */
